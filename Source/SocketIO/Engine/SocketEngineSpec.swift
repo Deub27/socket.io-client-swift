@@ -81,6 +81,9 @@ import Starscream
     /// The url for WebSockets.
     var urlWebSocket: URL { get }
 
+    /// The SSLClientCertificate that will be used for client SSL auth.
+    var sslClientCertificate: SSLClientCertificate? { get }
+
     /// If `true`, then the engine is currently in WebSockets mode.
     @available(*, deprecated, message: "No longer needed, if we're not polling, then we must be doing websockets")
     var websocket: Bool { get }
