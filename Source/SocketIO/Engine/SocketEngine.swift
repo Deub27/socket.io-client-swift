@@ -98,6 +98,9 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     /// The URLSession that will be used for polling.
     public private(set) var session: URLSession?
 
+    /// The URLSession that will be used for polling.
+    public private(set) var sslClientCertificate: SSLClientCertificate?
+
     /// The session id for this engine.
     public private(set) var sid = ""
 
@@ -294,7 +297,8 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
         ws?.enableCompression = compress
         ws?.disableSSLCertValidation = selfSigned
         ws?.security = security?.security
-
+        ws?.sslClientCertificate = sslClientCertificate
+        
         ws?.onConnect = {[weak self] in
             guard let this = self else { return }
 
