@@ -98,9 +98,6 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     /// The URLSession that will be used for polling.
     public private(set) var session: URLSession?
 
-    /// The SSLClientCertificate that will be used for client SSL auth.
-    public private(set) var sslClientCertificate: SSLClientCertificate?
-
     /// The session id for this engine.
     public private(set) var sid = ""
 
@@ -143,6 +140,9 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     private var secure = false
     private var security: SocketIO.SSLSecurity?
     private var selfSigned = false
+
+    /// The SSLClientCertificate that will be used for client SSL auth.
+    public var sslClientCertificate: SSLClientCertificate?
 
     // MARK: Initializers
 
